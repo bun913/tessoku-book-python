@@ -8,15 +8,16 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    N = arrange()
+    act(N)
 
 
 def arrange():
-    pass
+    return int(input())
 
 
-def act():
-    pass
+def act(N):
+    print(N**2)
+
 
 solve()
