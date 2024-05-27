@@ -8,15 +8,23 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    N, X, A = arrange()
+    act(X, A)
 
 
 def arrange():
-    pass
+    N, X = list(map(int, input().split()))
+    A = list(map(int, input().split()))
+    return N, X, A
 
 
-def act():
-    pass
+def act(X, A):
+    ans = "No"
+    for a in A:
+        if a == X:
+            ans = "Yes"
+            break
+    print(ans)
+
 
 solve()
