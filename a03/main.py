@@ -8,15 +8,24 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    N, K, P, Q = arrange()
+    act(K, P, Q)
 
 
 def arrange():
-    pass
+    N, K = list(map(int, input().split()))
+    P = list(map(int, input().split()))
+    Q = list(map(int, input().split()))
+    return N, K, P, Q
 
 
-def act():
-    pass
+def act(K, P, Q):
+    for p in P:
+        for q in Q:
+            if p + q == K:
+                print("Yes")
+                exit()
+    print("No")
+
 
 solve()
