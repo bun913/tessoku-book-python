@@ -8,15 +8,27 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    N = arrange()
+    ans = act(N)
+    print(*ans, sep="")
 
 
 def arrange():
-    pass
+    return int(input())
 
 
-def act():
-    pass
+def act(N):
+    n = N
+    l = []
+    while n >= 2:
+        rest = n % 2
+        l = [rest] + l
+        n = n // 2
+    l = [n] + l
+    # 10桁になるまで0を追加
+    while len(l) < 10:
+        l = [0] + l
+    return l
+
 
 solve()
