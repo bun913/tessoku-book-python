@@ -8,15 +8,35 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    N, X, A = arrange()
+    act(N, X, A)
 
 
 def arrange():
-    pass
+    N, X = map(int, input().split())
+    A = list(map(int, input().split()))
+    return N, X, A
 
 
-def act():
-    pass
+def act(N, X, A):
+    ok = -1
+    ng = N
+    ng, ok = meguru_bisect(ng, ok, X, A)
+    print(ng)
+
+
+def meguru_bisect(ng, ok, X, A):
+    while (abs(ok-ng) > 1):
+        mid = (ok+ng) // 2
+        if is_ok(mid, A, X):
+            ok = mid
+        else:
+            ng = mid
+    return ng, ok
+
+
+def is_ok(mid, A, X):
+    return A[mid] <= X
+
 
 solve()
