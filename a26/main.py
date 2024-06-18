@@ -8,15 +8,36 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    Q = arrange()
+    primse = makeprime()
+    act(primse, Q)
 
 
 def arrange():
-    pass
+    return int(input())
 
 
-def act():
-    pass
+def makeprime():
+    primse = [True for _ in range(300001)]
+    primse[0] = False
+    primse[1] = False
+    for n in range(2, 300001):
+        if primse[n] is False:
+            continue
+        q = n * 2
+        while q <= 300000:
+            primse[q] = False
+            q += n
+    return primse
+
+
+def act(primse, Q):
+    for _ in range(Q):
+        x = int(input())
+        if primse[x] is True:
+            print("Yes")
+        else:
+            print("No")
+
 
 solve()
