@@ -8,15 +8,30 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    N = arrange()
+    act(N)
 
 
 def arrange():
-    pass
+    return int(input())
 
 
-def act():
-    pass
+def act(N):
+    mod = 10000
+    ans = 0
+    for _ in range(N):
+        t, a = input().split()
+        a = int(a)
+        if t == "+":
+            ans += a
+            ans %= mod
+        elif t == "-":
+            ans -= a
+            ans %= mod
+        else:
+            ans *= a
+            ans %= mod
+        print(ans)
+
 
 solve()
