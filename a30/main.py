@@ -8,15 +8,28 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    n, r = arrange()
+    act(n, r)
 
 
 def arrange():
-    pass
+    return map(int, input().split())
 
 
-def act():
-    pass
+def act(n, r):
+    MOD = 10**9 + 7
+    num = 1
+    for i in range(1, n+1):
+        num = num * i % MOD
+    dem = 1
+    for i in range(1, r+1):
+        dem = dem * i % MOD
+    for i in range(1, n-r+1):
+        dem = dem * i % MOD
+    # 逆元を求める
+    dem = pow(dem, MOD-2, MOD)
+    ans = num * dem % MOD
+    print(ans)
+
 
 solve()
