@@ -8,15 +8,29 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    N, M, B, A, C = arrange()
+    act(N, M, B, A, C)
 
 
 def arrange():
-    pass
+    N, M, B = map(int, input().split())
+    A = list(map(int, input().split()))
+    C = list(map(int, input().split()))
+    return N, M, B, A, C
 
 
-def act():
-    pass
+def act(N, M, B, A, C):
+    # まずはBを通る合計を算出
+    sum_b = B * N * M
+    # 次にAを足される回数から算出
+    sum_a = 0
+    for a in A:
+        sum_a += a * M
+    sum_c = 0
+    for c in C:
+        sum_c += c * N
+    ans = sum_b + sum_a + sum_c
+    print(ans)
+
 
 solve()
