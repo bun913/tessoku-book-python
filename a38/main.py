@@ -8,15 +8,23 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    D, N, L = arrange()
+    act(D, N, L)
 
 
 def arrange():
-    pass
+    D, N = map(int, input().split())
+    L = [24 for _ in range(D+1)]
+    L[0] = 0
+    return D, N, L
 
 
-def act():
-    pass
+def act(D, N, L):
+    for _ in range(N):
+        l, r, h = map(int, input().split())
+        for d in range(l, r+1):
+            L[d] = min(L[d], h)
+    print(sum(L))
+
 
 solve()
