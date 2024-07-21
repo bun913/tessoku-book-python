@@ -8,15 +8,26 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    N, A, B = arrange()
+    act(N, A, B)
 
 
 def arrange():
-    pass
+    N = int(input())
+    A = list(map(int, input().split()))
+    B = list(map(int, input().split()))
+    A.sort()
+    B.sort(reverse=True)
+    return N, A, B
 
 
-def act():
-    pass
+def act(N, A, B):
+    ans = 0
+    for i in range(N):
+        a = A[i]
+        b = B[i]
+        ans += a*b
+    print(ans)
+
 
 solve()
