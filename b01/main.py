@@ -8,15 +8,16 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    A, B = arrange()
+    act(A, B)
 
 
 def arrange():
-    pass
+    return list(map(int, input().split()))
 
 
-def act():
-    pass
+def act(A, B):
+    print(A+B)
+
 
 solve()
