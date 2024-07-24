@@ -8,15 +8,21 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    A, B = arrange()
+    act(A, B)
 
 
 def arrange():
-    pass
+    return list(map(int, input().split()))
 
 
-def act():
-    pass
+def act(A, B):
+    ans = "No"
+    for i in range(A, B+1):
+        if 100 % i == 0:
+            ans = "Yes"
+            break
+    print(ans)
+
 
 solve()
