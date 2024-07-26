@@ -8,15 +8,26 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    S = arrange()
+    ans = act(S)
+    print(ans)
 
 
 def arrange():
-    pass
+    return input()
 
 
-def act():
-    pass
+def act(S):
+    L = list(S)
+    L = [int(l) for l in L]
+    # 逆にして処理
+    L = L[::-1]
+    i = 0
+    ans = 0
+    for l in L:
+        ans += 2 ** i * l
+        i += 1
+    return ans
+
 
 solve()
