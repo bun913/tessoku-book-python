@@ -8,15 +8,24 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    Q = arrange()
+    act(Q)
 
 
 def arrange():
-    pass
+    return int(input())
 
 
-def act():
-    pass
+def act(Q):
+    memo = {}
+    for _ in range(Q):
+        s = input()
+        if s.startswith("1"):
+            _, key, value = s.split()
+            memo[key] = value
+            continue
+        _, key = s.split()
+        print(memo[key])
+
 
 solve()
