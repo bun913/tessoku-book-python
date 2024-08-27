@@ -8,15 +8,19 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    a, b, c = arrange()
+    act(a, b, c)
 
 
 def arrange():
-    pass
+    return map(int, input().split())
 
 
-def act():
-    pass
+def act(a, b, c):
+    if sum([a, b, c]) == 0:
+        print("Yes")
+        exit()
+    print("No")
+
 
 solve()
