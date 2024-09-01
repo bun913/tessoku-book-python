@@ -8,15 +8,29 @@ setrecursionlimit(10**8)
 
 
 def solve():
-    arrange()
-    act()
+    N, memo = arrange()
+    act(memo)
 
 
 def arrange():
-    pass
+    N = int(input())
+    A = [int(input()) for _ in range(N)]
+    memo = {}
+    for a in A:
+        if a in memo:
+            memo[a] += 1
+        else:
+            memo[a] = 1
+    return N, memo
 
 
-def act():
-    pass
+def act(memo):
+    ans = 0
+    for k, v in memo.items():
+        if v < 2:
+            continue
+        ans += v * (v - 1) // 2
+    print(ans)
+
 
 solve()
